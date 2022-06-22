@@ -1,0 +1,29 @@
+package TestCases;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import baseclass.BaseClass;
+import pages.HomePage;
+
+public class TC1 extends BaseClass {
+	HomePage homePage;
+
+	@BeforeClass
+	public void setup() {
+		browserInitialization();
+		homePage = new HomePage();
+	}
+
+	@Test
+	public void userSelectTravelType() {
+		homePage.clickOnOneWayBtn();
+	}
+
+	@Test(dependsOnMethods = "userSelectTravelType")
+	public void userSelectTravelDetails() {
+		homePage.enterFromLocation("Kochi, India (COK)");
+		homePage.enterToLocation("Mumbai, India (BOM)");
+	}
+
+}

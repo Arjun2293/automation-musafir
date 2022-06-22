@@ -1,0 +1,35 @@
+package baseclass;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseClass {
+	public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<RemoteWebDriver>();
+	
+	/// <summary>
+	/// To Start Browser
+	/// </summary>
+	public void browserInitialization() {
+		WebDriverManager.chromedriver().setup();
+		setWebDriver(new ChromeDriver());
+		getWebDriver();
+		getWebDriver().manage().window().maximize();
+		String url = "https://in.musafir.com/";
+		getWebDriver().get(url);
+	}
+	
+	protected static void setWebDriver(RemoteWebDriver driverValue) {
+		driver.set(driverValue);
+	}
+	public RemoteWebDriver getWebDriver() {
+		return driver.get();
+	}
+	public void insertTextData(WebElement element,String dataToInsert) {
+		element.clear();
+		element.sendKeys(dataToInsert);
+	}
+
+}

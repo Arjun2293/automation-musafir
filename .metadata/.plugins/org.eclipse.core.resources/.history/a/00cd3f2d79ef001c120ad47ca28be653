@@ -1,0 +1,24 @@
+package pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import baseclass.BaseClass;
+
+public class HomePage extends BaseClass{
+	public HomePage() {
+		PageFactory.initElements(getWebDriver(), this);
+	}
+
+	//setting page Objects
+	@FindBy(xpath="//label[contains(text(),'One way')]")
+	public WebElement oneWayBtn;
+	
+	//Defining Functions
+	public void clickOnOneWayBtn()
+	{
+		oneWayBtn.click();
+	}
+	
+}

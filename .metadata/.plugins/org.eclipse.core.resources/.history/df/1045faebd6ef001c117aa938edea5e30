@@ -1,0 +1,13 @@
+package pages;
+
+import org.openqa.selenium.support.PageFactory;
+
+import baseclass.BaseClass;
+
+public class AirIndiaPage extends BaseClass {
+	public AirIndiaPage() {
+		PageFactory.initElements(getWebDriver(), this);
+	}
+
+	
+}

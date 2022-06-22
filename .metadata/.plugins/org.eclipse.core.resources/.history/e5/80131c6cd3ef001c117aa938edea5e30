@@ -1,0 +1,25 @@
+package TestCases;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import baseclass.BaseClass;
+import pages.AirIndiaPage;
+import pages.HomePage;
+
+public class TC2 extends BaseClass {
+	HomePage homePage;
+	AirIndiaPage  airIndiaPage;
+	@BeforeClass
+	public void setup() {
+		browserInitialization();
+		homePage=new HomePage();
+		airIndiaPage=new AirIndiaPage();
+	}
+	@Test
+	public void validateNavigationToAirIndiaPage() {
+		homePage.clickOnAirIndiaLink();
+	}
+	
+	
+}
